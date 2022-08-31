@@ -1,0 +1,36 @@
+.main{
+    margin-top : 12px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  
+    flex-direction: column;
+    height: 100%;
+    min-height: 86vh;
+}
+
+.header{
+    width: 75%;
+}
+
+
+iFrame{
+    width: 75%;
+}
+
+@media only screen and (max-width: 600px) {
+    iFrame{
+        width: 100%;
+    }
+    .header{
+        width: 100%;
+        padding: 0px 15px;
+        font-size: 12px;
+    }
+    .main{
+        margin-top :0px;
+        padding: 0px 15px;
+    }
+    
+    
+}
