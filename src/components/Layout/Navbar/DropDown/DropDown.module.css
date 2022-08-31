@@ -46,6 +46,7 @@
     width: 100%;
     justify-content: space-between;
     padding-right: 35px;
+    padding-left: 0px;
   }
   
   .navbar a:hover {

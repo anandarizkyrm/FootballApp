@@ -3,10 +3,12 @@ import style from "./Navbar.module.css";
 import { FaGripLines } from "react-icons/fa";
 import { useState } from "react";
 import DropDownMobile from "./DropDown/DropDownMobile";
+import { useNavigate } from "react-router-dom";
 const Navbar = () => {
-  const [hiddenNavInMobile, setHiddenNavInMobile] = useState(true);
+  const [hiddenNavInMobile, setHiddenNavInMobile] = useState(false);
   const [showDropDown, setShowDropDown] = useState(false);
   const [showDropDownMobile, setShowDropDownMobile] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <nav className={style.navbar}>
@@ -38,7 +40,9 @@ const Navbar = () => {
           </li>
 
           <li className="nav-item">
-            <p className="nav-link ">Livescores</p>
+            <p onClick={() => navigate("/livescore")} className="nav-link ">
+              Livescores
+            </p>
           </li>
           <li>
             <DropDown
@@ -75,7 +79,9 @@ const Navbar = () => {
           </li>
 
           <li className="nav-item">
-            <p className="nav-link ">Livescores</p>
+            <p onClick={() => navigate("/livescore")} className="nav-link ">
+              Livescores
+            </p>
           </li>
           <li>
             <DropDownMobile

@@ -11,7 +11,7 @@
 }
 .navbar{
     display: flex;
-    padding: 12px;
+    padding: 0px 12px;
     height: 52px;
     align-items: center;
     box-shadow: rgba(179, 179, 179, 0.2) 0px 2px 8px 0px;
@@ -168,13 +168,12 @@ li:hover{
         display: none;
         }
     .content_mobile{
-        height:23rem;
+        height:24rem;
         left: 0;
         transition: all 0.4s;
         display: flex;
         flex-direction: column;
         width: 100%;
-        top : 40px;
         align-items: flex-start;
     }
 
@@ -214,4 +213,22 @@ li:hover{
         margin-left: -38px;
      
     }
+
+
+  .button {
+    display: inline-block;
+    color: black;
+    padding: 6px 8px;
+    width: 6rem;
+    border: 1px solid palevioletred;
+    border-radius: 4px;
+    transition: all 0.2s ease-in;
+    position: relative;
+    overflow: hidden;
+    font-size: 15px;
+    background-color: white;
+
+    z-index: 1;
+   }
+   
  }

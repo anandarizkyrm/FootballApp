@@ -6,6 +6,7 @@ interface IProps {
   condition: boolean;
 }
 const RenderIfTrue = ({ children, condition }: IProps) => {
+  console.log(condition);
   if (!condition)
     return (
       <div className={style.makeLoaderToCenter}>

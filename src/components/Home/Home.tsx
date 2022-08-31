@@ -1,13 +1,12 @@
 import { useFetch } from "../Hooks/useFetch";
 import RenderIfTrue from "../RenderIfTrue/RenderIfTrue";
 import style from "./Home.module.css";
-
+import { useState } from "react";
 const Home: any = () => {
   const { data } = useFetch(
     `https://www.scorebat.com/video-api/v3/feed/?token=${process.env.REACT_APP_API_VIDEO}`
   );
 
-  console.log(data);
   return (
     <div className={style.main}>
       <div className={style.header}>
@@ -17,9 +16,35 @@ const Home: any = () => {
           highlights from all over Europe and America on the palm of your hands
         </h4>
       </div>
-      <RenderIfTrue condition={false}>
+      <RenderIfTrue condition={data ? true : false}>
         <h1>sdads</h1>
       </RenderIfTrue>
+      {/* <div
+        style={{
+          width: "100%",
+          height: "0px",
+          position: "relative",
+          paddingBottom: "56.250%",
+          background: "#000",
+        }}
+      >
+        <iframe
+          src="https:/www.scorebat.com/embed/v/dE1WZkxOaVJHR2t0ODhDR0tLT2xIQT09/?token=MjUyODlfMTY2MTk0OTU0M19hMTg1ZTQ4OGQ1NWI3ODNkMDUyMGVhN2JmNzJmNmU2Y2YwOTUwOTEz&utm_source=api&utm_medium=video&utm_campaign=apifd"
+          frameBorder="0"
+          width="100%"
+          height="100%"
+          allowFullScreen
+          allow="autoplay; fullscreen"
+          style={{
+            width: "100%",
+            height: "100%",
+            position: "absolute",
+            left: "0px",
+            top: "0px",
+            overflow: "hidden",
+          }}
+        ></iframe>
+      </div> */}
       {/* <iframe
         src="https://www.scorebat.com/embed/?token=MjUyODlfMTY2MTkwNzkxOF80YWEzZTUxZmNjNDY5MjAwNDc1YjlhNmQwYTExNGQwOTQzODA5MDA5"
         frameBorder="0"
