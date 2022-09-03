@@ -1,9 +1,9 @@
+import Highlights from "../Highlights/Highlights";
 import { useFetch } from "../Hooks/useFetch";
 import RenderIfTrue from "../RenderIfTrue/RenderIfTrue";
 import style from "./Home.module.css";
-import { useState } from "react";
 const Home: any = () => {
-  const { data } = useFetch(
+  const { data }: any = useFetch(
     `https://www.scorebat.com/video-api/v3/feed/?token=${process.env.REACT_APP_API_VIDEO}`
   );
 
@@ -11,13 +11,13 @@ const Home: any = () => {
     <div className={style.main}>
       <div className={style.header}>
         <h2>Watch the latest football highlights across Europe & America</h2>
-        <h4>
+        <h4 style={{ color: "gray", margin: 0, padding: 0 }}>
           Bringing you livescores,standings,stats,live streaming url's &
           highlights from all over Europe and America on the palm of your hands
         </h4>
       </div>
       <RenderIfTrue condition={data ? true : false}>
-        <h1>sdads</h1>
+        <Highlights matches={data?.response} />
       </RenderIfTrue>
       {/* <div
         style={{

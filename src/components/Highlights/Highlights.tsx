@@ -5,10 +5,15 @@ interface IProps {
 }
 const Highlights = ({ matches }: IProps) => {
   return (
-    <div>
-      {matches.map((match: any) => (
-        <Match key={match.videos.id} match={match} />
-      ))}
+    <div className={style.main}>
+      <h3 style={{ margin: 0, padding: 0, marginTop: "24px" }}>
+        New Match Highlights
+      </h3>
+      <div className={style.highlights}>
+        {matches.slice(0, 9).map((match: any) => (
+          <Match key={match.videos[0].id} match={match} />
+        ))}
+      </div>
     </div>
   );
 };

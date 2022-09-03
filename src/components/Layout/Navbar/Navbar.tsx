@@ -3,16 +3,18 @@ import style from "./Navbar.module.css";
 import { FaGripLines } from "react-icons/fa";
 import { useState } from "react";
 import DropDownMobile from "./DropDown/DropDownMobile";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
+
 const Navbar = () => {
   const [hiddenNavInMobile, setHiddenNavInMobile] = useState(false);
   const [showDropDown, setShowDropDown] = useState(false);
   const [showDropDownMobile, setShowDropDownMobile] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
   return (
     <nav className={style.navbar}>
-      <p className={style.logo}>
+      <p onClick={() => navigate("/")} className={style.logo}>
         <span>SCH</span>
         Football
       </p>
@@ -25,24 +27,27 @@ const Navbar = () => {
         aria-controls="navbarSupportedContent"
         aria-expanded="false"
         aria-label="Toggle navigation"
-        // style="border-color: orange;border: 1px solid orange;"
       >
         <FaGripLines />
       </button>
 
       <div className={style.content} id="navbarSupportedContent">
         <ul className={style.navLi}>
-          <li className="nav-item active">
-            <p className="nav-link">Home</p>
+          <li
+            style={{ color: location.pathname == "/" ? "palevioletred" : "" }}
+          >
+            <p onClick={() => navigate("/")}>Home</p>
           </li>
-          <li className="nav-item">
-            <p className="nav-link">Matches</p>
+          <li>
+            <p>Matches</p>
           </li>
 
-          <li className="nav-item">
-            <p onClick={() => navigate("/livescore")} className="nav-link ">
-              Livescores
-            </p>
+          <li
+            style={{
+              color: location.pathname == "/livescore" ? "palevioletred" : "",
+            }}
+          >
+            <p onClick={() => navigate("/livescore")}>Livescores</p>
           </li>
           <li>
             <DropDown
@@ -72,18 +77,16 @@ const Navbar = () => {
       >
         <ul className={style.navLi}>
           <li className="nav-item active">
-            <p className="nav-link">Home</p>
+            <p onClick={() => navigate("/")}>Home</p>
           </li>
-          <li className="nav-item">
-            <p className="nav-link">Matches</p>
+          <li style={{}}>
+            <p>Matches</p>
           </li>
 
-          <li className="nav-item">
-            <p onClick={() => navigate("/livescore")} className="nav-link ">
-              Livescores
-            </p>
+          <li style={{}}>
+            <p onClick={() => navigate("/livescore")}>Livescores</p>
           </li>
-          <li>
+          <li style={{}}>
             <DropDownMobile
               link={["Score", "Teams", "Standings"]}
               showDropDown={showDropDownMobile}
