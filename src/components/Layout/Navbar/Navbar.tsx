@@ -4,6 +4,7 @@ import { FaGripLines } from "react-icons/fa";
 import { useState } from "react";
 import DropDownMobile from "./DropDown/DropDownMobile";
 import { useNavigate, useLocation } from "react-router-dom";
+import Search from "./Search/Search";
 
 const Navbar = () => {
   const [hiddenNavInMobile, setHiddenNavInMobile] = useState(false);
@@ -57,16 +58,7 @@ const Navbar = () => {
             />
           </li>
         </ul>
-        <form className={style.searchForm}>
-          <input
-            className={style.inputSearch}
-            type="search"
-            placeholder="Teams,Players...."
-            aria-label="Search"
-          />
-
-          <button className={style.button}> Search</button>
-        </form>
+        <Search />
       </div>
 
       <div
@@ -94,16 +86,7 @@ const Navbar = () => {
             />
           </li>
         </ul>
-        <form className={style.searchForm}>
-          <input
-            className={style.inputSearch}
-            type="search"
-            placeholder="Teams,Players...."
-            aria-label="Search"
-          />
-
-          <button className={style.button}> Search</button>
-        </form>
+        {/* <Search /> */}
       </div>
     </nav>
   );

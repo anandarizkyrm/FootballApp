@@ -21,11 +21,11 @@ function Match({ match }: IProps): any {
 
       <p style={{ marginTop: "12px" }}>{ifStringToLong(match.title, 30)}</p>
       <p style={{ color: "gray", fontSize: "12px", marginTop: "6px" }}>
-        {match.competition}
+        {match.competition} <span> - {match.videos[0].title}</span>
       </p>
 
       <p style={{ color: "gray", fontSize: "10px", marginTop: "6px" }}>
-        {dayjs(match.date).format("YYYY-MM-DD HH:mm:ss")}
+        {dayjs(match.date).format("MMMM D, YYYY h:mm A")}
       </p>
     </div>
   );

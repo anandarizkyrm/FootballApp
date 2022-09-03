@@ -1,11 +1,10 @@
+import { GET_HIGHLIGHTS } from "../../GraphQL/Queries";
 import Highlights from "../Highlights/Highlights";
-import { useFetch } from "../Hooks/useFetch";
+import { useQuery, gql } from "@apollo/client";
 import RenderIfTrue from "../RenderIfTrue/RenderIfTrue";
 import style from "./Home.module.css";
 const Home: any = () => {
-  const { data }: any = useFetch(
-    `https://www.scorebat.com/video-api/v3/feed/?token=${process.env.REACT_APP_API_VIDEO}`
-  );
+  const { loading, data } = useQuery(GET_HIGHLIGHTS);
 
   return (
     <div className={style.main}>
@@ -16,8 +15,8 @@ const Home: any = () => {
           highlights from all over Europe and America on the palm of your hands
         </h4>
       </div>
-      <RenderIfTrue condition={data ? true : false}>
-        <Highlights matches={data?.response} />
+      <RenderIfTrue condition={!loading}>
+        <Highlights matches={data?.highlights} />
       </RenderIfTrue>
       {/* <div
         style={{
