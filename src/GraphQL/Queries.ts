@@ -29,3 +29,21 @@ export const SEARCH_PLAYER = gql`
   }
 
 `
+
+export const GET_LEAGUE = gql `
+    query Query {
+      getLeague {
+        league {
+          name
+          logo
+          type
+        }
+        country {
+          name
+          flag
+        }
+      }
+    }
+
+
+`

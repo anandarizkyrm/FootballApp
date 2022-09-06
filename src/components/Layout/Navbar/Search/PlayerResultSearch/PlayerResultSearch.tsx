@@ -12,11 +12,11 @@ function PlayerResultSearch({ data }: IProps) {
       </div>
       <div className={style.textContainer}>
         <p>
-          {data.firstName}{" "}
-          <span style={{ fontWeight: 500 }}>{data.lastName}</span>
+          {data.firstName}
+          <span style={{ fontWeight: 500 }}> {data.lastName}</span>
         </p>
         <div style={{ display: "flex" }}>
-          {data.position.map((data: any, idx: number) => (
+          {data?.position?.map((data: any, idx: number) => (
             <p
               key={idx}
               style={{

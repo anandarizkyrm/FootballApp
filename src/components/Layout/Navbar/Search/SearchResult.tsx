@@ -11,7 +11,7 @@ interface IProps {
 }
 
 const SearchResult = ({ search, showResult, setShowResult }: IProps) => {
-  const [executeSearch, { data, loading }] = useLazyQuery(SEARCH_PLAYER);
+  const [executeSearch, { error, data, loading }] = useLazyQuery(SEARCH_PLAYER);
 
   useEffect(() => {
     if (search.length >= 3) {
@@ -22,16 +22,19 @@ const SearchResult = ({ search, showResult, setShowResult }: IProps) => {
     } else {
       setShowResult(false);
     }
+    //eslint-disable-next-line
   }, [search]);
 
-  if (!showResult) return null;
+  if (!showResult || error) return null;
   return (
     <div className={style.searchResult}>
       <div style={{ display: "flex", justifyContent: "center" }}>
         {loading ? (
           <Loader height={20} width={20} />
         ) : data.searchPlayer ? (
-          <PlayerResultSearch data={data.searchPlayer} />
+          data.searchPlayer.map((data: any, idx: any) => (
+            <PlayerResultSearch key={idx} data={data} />
+          ))
         ) : (
           <p style={{ color: "black", padding: 0, margin: 0 }}>
             Data Not Found

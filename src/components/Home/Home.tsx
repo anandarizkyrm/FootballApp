@@ -1,10 +1,17 @@
 import { GET_HIGHLIGHTS } from "../../GraphQL/Queries";
 import Highlights from "../Highlights/Highlights";
-import { useQuery, gql } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import RenderIfTrue from "../RenderIfTrue/RenderIfTrue";
 import style from "./Home.module.css";
 const Home: any = () => {
-  const { loading, data } = useQuery(GET_HIGHLIGHTS);
+  const { error, loading, data } = useQuery(GET_HIGHLIGHTS);
+
+  if (error)
+    return (
+      <div className={style.main}>
+        <h1>Error Server</h1>
+      </div>
+    );
 
   return (
     <div className={style.main}>

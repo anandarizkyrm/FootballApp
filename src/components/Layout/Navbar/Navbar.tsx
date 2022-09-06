@@ -39,8 +39,12 @@ const Navbar = () => {
           >
             <p onClick={() => navigate("/")}>Home</p>
           </li>
-          <li>
-            <p>Matches</p>
+          <li
+            style={{
+              color: location.pathname == "/leagues" ? "palevioletred" : "",
+            }}
+          >
+            <p onClick={() => navigate("/leagues")}>League</p>
           </li>
 
           <li
@@ -71,8 +75,12 @@ const Navbar = () => {
           <li className="nav-item active">
             <p onClick={() => navigate("/")}>Home</p>
           </li>
-          <li style={{}}>
-            <p>Matches</p>
+          <li
+            style={{
+              color: location.pathname == "/leagues" ? "palevioletred" : "",
+            }}
+          >
+            <p onClick={() => navigate("/leagues")}>League</p>
           </li>
 
           <li style={{}}>

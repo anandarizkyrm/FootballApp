@@ -13,7 +13,7 @@ function HandleClikOutsideComponent(ref: any, setShowResult: any) {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [ref]);
+  }, [ref, setShowResult]);
 }
 
 const Search = () => {
@@ -43,7 +43,6 @@ const Search = () => {
           showResult={showResult}
         />
       </div>
-
       <button className={style.button}> Search</button>
     </form>
   );
