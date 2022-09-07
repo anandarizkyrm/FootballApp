@@ -22,9 +22,9 @@ const Leagues = () => {
       <div className={Style.leagues_container}>
         <RenderIfTrue condition={!loading}>
           {data &&
-            data.getLeague.map((data: any, idx: number) => (
-              <League data={data} />
-            ))}
+            data.getLeague
+              .slice(0, 20)
+              .map((data: any, idx: number) => <League data={data} />)}
         </RenderIfTrue>
       </div>
     </div>

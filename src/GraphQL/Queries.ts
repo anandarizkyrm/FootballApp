@@ -24,6 +24,7 @@ export const SEARCH_PLAYER = gql`
       position
       photo
       flag
+      logo
       club
     }
   }

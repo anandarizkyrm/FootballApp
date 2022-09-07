@@ -7,9 +7,14 @@ interface IProps {
 function PlayerResultSearch({ data }: IProps) {
   return (
     <div className={style.main}>
-      <div>
-        <img width={80} height={60} alt={data.firstName} src={data.flag} />
-      </div>
+      <img
+        style={{ padding: "2px" }}
+        width={60}
+        height={60}
+        alt={data.photo}
+        src={data.photo}
+      />
+
       <div className={style.textContainer}>
         <p>
           {data.firstName}
@@ -29,9 +34,19 @@ function PlayerResultSearch({ data }: IProps) {
             </p>
           ))}
         </div>
-        <p style={{ fontSize: "12px" }}>
-          {data.club} {getAbberviation(data.club)}
-        </p>
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <p
+            style={{
+              fontSize: "12px",
+              padding: "0px",
+              margin: "0px",
+              marginRight: "4px",
+            }}
+          >
+            {data.club} {getAbberviation(data.club)}
+          </p>
+          <img width={20} height={20} src={data.logo} alt={data.logo} />
+        </div>
       </div>
     </div>
   );

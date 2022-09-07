@@ -60,7 +60,7 @@ const Navbar = () => {
             </li>
             <li>
               <DropDown
-                link={["Score", "Teams", "Standings"]}
+                link={["Livescore", "Leagues"]}
                 showDropDown={showDropDown}
                 setShowDropDown={setShowDropDown}
               />
@@ -94,7 +94,7 @@ const Navbar = () => {
             </li>
             <li style={{}}>
               <DropDownMobile
-                link={["Score", "Teams", "Standings"]}
+                link={["Livescore", "Leagues"]}
                 showDropDown={showDropDownMobile}
                 setShowDropDown={setShowDropDownMobile}
               />
