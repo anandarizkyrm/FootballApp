@@ -31,7 +31,7 @@ const SearchResult = ({ search, showResult, setShowResult }: IProps) => {
       <div style={{ display: "flex", justifyContent: "center" }}>
         {loading ? (
           <Loader height={20} width={20} />
-        ) : data.searchPlayer ? (
+        ) : data.searchPlayer.length > 0 ? (
           data.searchPlayer.map((data: any, idx: any) => (
             <PlayerResultSearch key={idx} data={data} />
           ))

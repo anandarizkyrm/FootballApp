@@ -9,12 +9,19 @@
 .logo > span{
     color: palevioletred;
 }
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .navbar{
     display: flex;
     padding: 0px 12px;
     height: 52px;
+    width: 100%;
     align-items: center;
     box-shadow: rgba(179, 179, 179, 0.2) 0px 2px 8px 0px;
+    max-width: 100em;
 
 }
 .content{

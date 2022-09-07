@@ -14,87 +14,94 @@ const Navbar = () => {
   const location = useLocation();
 
   return (
-    <nav className={style.navbar}>
-      <p onClick={() => navigate("/")} className={style.logo}>
-        <span>SCH</span>
-        Football
-      </p>
-      <button
-        onClick={() => setHiddenNavInMobile(!hiddenNavInMobile)}
-        className={style.navbar_toggler_button}
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <FaGripLines />
-      </button>
+    <nav>
+      <div className={style.navbar}>
+        <p onClick={() => navigate("/")} className={style.logo}>
+          <span>SCH</span>
+          Football
+        </p>
+        <button
+          onClick={() => setHiddenNavInMobile(!hiddenNavInMobile)}
+          className={style.navbar_toggler_button}
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <FaGripLines />
+        </button>
 
-      <div className={style.content} id="navbarSupportedContent">
-        <ul className={style.navLi}>
-          <li
-            style={{ color: location.pathname == "/" ? "palevioletred" : "" }}
-          >
-            <p onClick={() => navigate("/")}>Home</p>
-          </li>
-          <li
-            style={{
-              color: location.pathname == "/leagues" ? "palevioletred" : "",
-            }}
-          >
-            <p onClick={() => navigate("/leagues")}>League</p>
-          </li>
+        <div className={style.content} id="navbarSupportedContent">
+          <ul className={style.navLi}>
+            <li
+              style={{
+                color: location.pathname === "/" ? "palevioletred" : "",
+              }}
+            >
+              <p onClick={() => navigate("/")}>Home</p>
+            </li>
+            <li
+              style={{
+                color: location.pathname === "/leagues" ? "palevioletred" : "",
+              }}
+            >
+              <p onClick={() => navigate("/leagues")}>League</p>
+            </li>
 
-          <li
-            style={{
-              color: location.pathname == "/livescore" ? "palevioletred" : "",
-            }}
-          >
-            <p onClick={() => navigate("/livescore")}>Livescores</p>
-          </li>
-          <li>
-            <DropDown
-              link={["Score", "Teams", "Standings"]}
-              showDropDown={showDropDown}
-              setShowDropDown={setShowDropDown}
-            />
-          </li>
-        </ul>
-        <Search />
-      </div>
+            <li
+              style={{
+                color:
+                  location.pathname === "/livescore" ? "palevioletred" : "",
+              }}
+            >
+              <p onClick={() => navigate("/livescore")}>Livescores</p>
+            </li>
+            <li>
+              <DropDown
+                link={["Score", "Teams", "Standings"]}
+                showDropDown={showDropDown}
+                setShowDropDown={setShowDropDown}
+              />
+            </li>
+          </ul>
+          <Search />
+        </div>
 
-      <div
-        className={
-          hiddenNavInMobile ? style.content_mobile : style.content_mobile_close
-        }
-        id="navbarSupportedContent"
-      >
-        <ul className={style.navLi}>
-          <li className="nav-item active">
-            <p onClick={() => navigate("/")}>Home</p>
-          </li>
-          <li
-            style={{
-              color: location.pathname == "/leagues" ? "palevioletred" : "",
-            }}
-          >
-            <p onClick={() => navigate("/leagues")}>League</p>
-          </li>
+        <div
+          className={
+            hiddenNavInMobile
+              ? style.content_mobile
+              : style.content_mobile_close
+          }
+          id="navbarSupportedContent"
+        >
+          <ul className={style.navLi}>
+            <li className="nav-item active">
+              <p onClick={() => navigate("/")}>Home</p>
+            </li>
+            <li
+              style={{
+                color: location.pathname === "/leagues" ? "palevioletred" : "",
+              }}
+            >
+              <p onClick={() => navigate("/leagues")}>League</p>
+            </li>
 
-          <li style={{}}>
-            <p onClick={() => navigate("/livescore")}>Livescores</p>
-          </li>
-          <li style={{}}>
-            <DropDownMobile
-              link={["Score", "Teams", "Standings"]}
-              showDropDown={showDropDownMobile}
-              setShowDropDown={setShowDropDownMobile}
-            />
-          </li>
-        </ul>
-        {/* <Search /> */}
+            <li style={{}}>
+              <p onClick={() => navigate("/livescore")}>Livescores</p>
+            </li>
+            <li style={{}}>
+              <DropDownMobile
+                link={["Score", "Teams", "Standings"]}
+                showDropDown={showDropDownMobile}
+                setShowDropDown={setShowDropDownMobile}
+              />
+            </li>
+          </ul>
+          {/* <Search /> */}
+        </div>
       </div>
     </nav>
   );
