@@ -7,13 +7,14 @@ interface IProps {
 
 function League({ data }: IProps) {
   const [loading, setLoading] = useState(true);
-  console.log(data);
+
   return (
     <div className={style.league}>
       <div
         style={{
           display: loading ? "flex" : "none",
           width: "100%",
+
           alignItems: "center",
           justifyContent: "center",
         }}

@@ -3,17 +3,19 @@ import { useQuery } from "@apollo/client";
 import League from "./League";
 import { GET_LEAGUE } from "../../GraphQL/Queries";
 import RenderIfTrue from "../RenderIfTrue/RenderIfTrue";
+import { lazy, Suspense } from "react";
+
+const ErrorServer = lazy(() => import("../Error/ErrorServer"));
 
 const Leagues = () => {
   const { error, loading, data } = useQuery(GET_LEAGUE);
-  console.log(data);
-  if (error)
+  if (error) {
     return (
-      <div>
-        <h1>Error Server</h1>
-      </div>
+      <Suspense fallback={<>Loading ...</>}>
+        <ErrorServer />
+      </Suspense>
     );
-
+  }
   return (
     <div className={Style.main}>
       <div className={Style.header}>

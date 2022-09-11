@@ -6,7 +6,7 @@ import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 
 const client = new ApolloClient({
-  uri: process.env.REACT_APP_DEV,
+  uri: process.env.REACT_APP_GRAPHQL_SERVER,
   cache: new InMemoryCache(),
 });
 
