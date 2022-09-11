@@ -12,7 +12,6 @@ const Layout = ({ children }: IProps) => {
       <Helmet>
         <meta charSet="utf-8" />
         <title>SchFootball</title>
-        {/* <link rel="canonical" href="http://mysite.com/example" /> */}
       </Helmet>
       <Navbar />
       {children}

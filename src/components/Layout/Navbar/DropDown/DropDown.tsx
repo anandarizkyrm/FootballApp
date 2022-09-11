@@ -5,8 +5,8 @@ import { FaAngleDown } from "react-icons/fa";
 
 interface IProps {
   link: string[];
-  showDropDown: any;
-  setShowDropDown: any;
+  showDropDown?: any;
+  setShowDropDown?: any;
 }
 function DropDown({ link, setShowDropDown, showDropDown }: IProps) {
   const navigate = useNavigate();
@@ -31,6 +31,7 @@ function DropDown({ link, setShowDropDown, showDropDown }: IProps) {
 
   return (
     <div
+      data-testid="dropdown"
       ref={componentRef as any}
       onClick={handleCloseDropDown}
       className={style.dropdown}

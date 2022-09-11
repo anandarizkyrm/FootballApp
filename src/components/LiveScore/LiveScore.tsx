@@ -1,5 +1,6 @@
 import IframeResizer from "iframe-resizer-react";
 import style from "./LiveScore.module.css";
+
 const LiveScore = () => {
   return (
     <div className={style.main}>
